@@ -18,11 +18,22 @@ const friends = ["Jupiter", "Junon", "Alcène", "Déjanire"]
 
 const titleElement = document.createElement("h1");
 console.log(titleElement);
+// j'ecrie mon texte du H1
+titleElement.textContent = "Vous consultez le profil de Hercule";
 
-// on récupère la classe banner title en CSS 
-const titleClass = document.querySelector(".banner__title");
 
-console.log(titleClass);
+// j'associe la classe déjà existante dans CSS au h1
+
+titleElement.className = "banner__title";
+
+// Je récupère mon ID déjà existant en HTML
+
+const bannerElement = document.getElementById("header-banner");
+
+// je l'affiche sur ma page web 
+
+bannerElement.appendChild(titleElement);
+
 
 
 // on crée une fonction pour le profil 
@@ -102,10 +113,21 @@ function setBestFriend(name) {
     document.querySelector('#best-friend').textContent = name;
 }
 
+// on une fonction pour récupérer tous les travaux d'hercule
+function displayWork(number) {
+    const works = document.querySelectorAll('.panel--work');
+
+// on crée une boucle pour masquer tous les éléments de works en ajoutant hidden
+    works.forEach(work => work.classList.add('hidden'));
+    
+    // j'enlèvement le hidden, uniquement à l'élement correspondant à l'index 'number'
+    works[number].classList.remove('hidden');
+}
+
+
 // l'appel des fonctions 
 
 fillProfil(hercule);
 printFriends(friends);
 setBestFriend(friends[0]);
-
-
+displayWork(5);
