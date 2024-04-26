@@ -1,6 +1,4 @@
 
-//resoudre le probleme de lien
-console.log('test' + "1...2...1...2");
 
 //on crée l'objet qui va contenir les informations sur Hercule
 
@@ -12,6 +10,22 @@ const hercule = {
     arm: 60.5,
     inRelationship: true,
 };
+
+// on crée le tableau pour les amis
+const friends = ["Jupiter", "Junon", "Alcène", "Déjanire"]
+
+// on crée le nouvel Element pour le H1 
+
+const titleElement = document.createElement("h1");
+console.log(titleElement);
+
+// on récupère la classe banner title en CSS 
+const titleClass = document.querySelector(".banner__title");
+
+console.log(titleClass);
+
+
+// on crée une fonction pour le profil 
 
 function fillProfil(profil) {
     const listElem = document.getElementById('profil');
@@ -65,5 +79,33 @@ function fillProfil(profil) {
     }
 };
 
+// on crée une fonction pour les amis
+
+function printFriends(friends) {
+    const listElem = document.getElementById('friends');
+    listElem.classList.remove('hidden');
+    if (!friends || !Array.isArray(friends)) {
+        listElem.innerHTML = '<li class="red">Tu as bien appelé <code>printFriends</code> mais tu ne sembles pas avoir passé de tableau en argument</li>';
+    }
+    else {
+        friends.forEach((friend) => {
+            const newElem = document.createElement('li');
+            newElem.className = 'tags__item';
+            newElem.innerHTML = friend;
+            listElem.appendChild(newElem);
+        });
+    }
+};
+
+// on crée une fonction pour le meilleur ami
+function setBestFriend(name) {
+    document.querySelector('#best-friend').textContent = name;
+}
+
+// l'appel des fonctions 
+
 fillProfil(hercule);
+printFriends(friends);
+setBestFriend(friends[0]);
+
 
