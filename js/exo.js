@@ -124,8 +124,40 @@ function displayWork(number) {
     works[number].classList.remove('hidden');
 }
 
+// creer une fonction pour savoir si Hercule est disponible ou non 
+
+function getHourStatus() {
+    // Récupérer l'heure actuelle
+    const currentHour = new Date().getHours();
+  
+    // Vérifier la disponibilité d'Hercule
+    if (currentHour >= 8 && currentHour < 20) {
+      return "Disponible";
+    } else {
+      return "Non disponible";
+    }
+  }
+  
+  // Récupérer l'élément avec l'id "availability"
+  const availabilityElement = document.querySelector("#availability");
+  
+  // Récupérer le statut de disponibilité
+  const hourStatus = getHourStatus();
+  
+  // Afficher le statut dans l'élément
+  availabilityElement.textContent = hourStatus;
+
+ 
+// Ajouter ou supprimer la classe "off" en fonction du statut
+if (hourStatus === "Non disponible") {
+    availabilityElement.classList.add("off");
+  } else {
+    availabilityElement.classList.remove("off");
+  }
+
 
 // l'appel des fonctions 
+
 
 fillProfil(hercule);
 printFriends(friends);
