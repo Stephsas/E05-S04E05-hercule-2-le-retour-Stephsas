@@ -192,8 +192,13 @@ menu.addEventListener('click', function () {
 
 })
 
+const formElement = document.querySelector('#contact');
 
-
+formElement.addEventListener('submit', function(event) {
+    // Empêcher le comportement par défaut du formulaire (rafraîchissement de la page)
+    event.preventDefault();
+    alert('Hercule ne souhaite pas être dérangé');
+});
 // l'appel des fonctions 
 
 
