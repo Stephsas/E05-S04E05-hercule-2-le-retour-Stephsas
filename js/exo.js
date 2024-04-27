@@ -117,9 +117,9 @@ function setBestFriend(name) {
 function displayWork(number) {
     const works = document.querySelectorAll('.panel--work');
 
-// on crée une boucle pour masquer tous les éléments de works en ajoutant hidden
+    // on crée une boucle pour masquer tous les éléments de works en ajoutant hidden
     works.forEach(work => work.classList.add('hidden'));
-    
+
     // j'enlèvement le hidden, uniquement à l'élement correspondant à l'index 'number'
     works[number].classList.remove('hidden');
 }
@@ -129,39 +129,39 @@ function displayWork(number) {
 function getHourStatus() {
     // Récupérer l'heure actuelle
     const currentHour = new Date().getHours();
-  
+
     // Vérifier la disponibilité d'Hercule
     if (currentHour >= 8 && currentHour < 20) {
-      return "Disponible";
+        return "Disponible";
     } else {
-      return "Non disponible";
+        return "Non disponible";
     }
-  }
-  
-  // Récupérer l'élément avec l'id "availability"
-  const availabilityElement = document.querySelector("#availability");
-  
-  // Récupérer le statut de disponibilité
-  const hourStatus = getHourStatus();
-  
-  // Afficher le statut dans l'élément
-  availabilityElement.textContent = hourStatus;
+}
 
- 
+// Récupérer l'élément avec l'id "availability"
+const availabilityElement = document.querySelector("#availability");
+
+// Récupérer le statut de disponibilité
+const hourStatus = getHourStatus();
+
+// Afficher le statut dans l'élément
+availabilityElement.textContent = hourStatus;
+
+
 // Ajouter ou supprimer la classe "off" en fonction du statut
 if (hourStatus === "Non disponible") {
     availabilityElement.classList.add("off");
-  } else {
+} else {
     availabilityElement.classList.remove("off");
-  }
+}
 
 
 // fonction pour générer un pseudo 
 
-function nickname (name, department) {
+function nickname(name, department) {
 
-    return name + " du "+ department;
-    
+    return name + " du " + department;
+
 }
 
 const pseudo = nickname("Hercule", 75);
@@ -169,6 +169,29 @@ console.log(pseudo);
 
 // écrire le pseudo dans l'ID profil-name
 document.getElementById("profil-name").textContent = pseudo;
+
+// Rajouter un Event sur un ID déjà existant 
+
+const menu = document.querySelector('#menu-toggler');
+
+
+// au clic  la classe banner--open s'ouvre ou non selon les conditions suivantes :
+
+const bannerHeader = document.getElementById('header-banner');
+
+menu.addEventListener('click', function () {
+
+    // si au clic le menu a la classe banner--open, on lenleve
+    if (bannerHeader.classList.contains('banner--open')) {
+        bannerHeader.classList.remove('banner--open');
+        // sinon on l'a met
+    } else {
+        bannerHeader.classList.add('banner--open');
+    }
+
+
+})
+
 
 
 // l'appel des fonctions 
