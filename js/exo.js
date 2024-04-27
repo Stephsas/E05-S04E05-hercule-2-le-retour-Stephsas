@@ -156,6 +156,21 @@ if (hourStatus === "Non disponible") {
   }
 
 
+// fonction pour générer un pseudo 
+
+function nickname (name, department) {
+
+    return name + " du "+ department;
+    
+}
+
+const pseudo = nickname("Hercule", 75);
+console.log(pseudo);
+
+// écrire le pseudo dans l'ID profil-name
+document.getElementById("profil-name").textContent = pseudo;
+
+
 // l'appel des fonctions 
 
 
